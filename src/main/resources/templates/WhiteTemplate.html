@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>White Wines</title>
+    <link rel="stylesheet" type="text/css" href="CategoryStyle.css">
 </head>
 <body>
+<section class="details">
+    <h1 th:text="${Category.type}" class ="wine-type">WHITES</h1>
+        <h2 th:text="${Category.name}" class="wine-name">Riesling</h2>
+    <p th:text="${Category.blurb}" class="wine-description">This riesling was fermented from the finest of Sicilian grapes mixed with Satan's tears.</p>
+</section>
 
+<a class="nav_write-review" href="Review.html" >Please Write a Review</a>
 </body>
 </html>

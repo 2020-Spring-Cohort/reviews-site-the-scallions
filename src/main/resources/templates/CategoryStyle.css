@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("backgroundpic.jpg");
+    background-size: cover;
+    background-position-y: center;
+    background-repeat: no-repeat;
+}
+.details{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    margin: 100px;
+}
+
+.wine-type{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-gap: 100px;
+    align-content: center;
+}
+.wine-name{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-gap: 200px;
+}
+
+.wine-description{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    margin-top: 100px;
+}
