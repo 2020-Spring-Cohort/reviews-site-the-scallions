@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>ReviewPage</title>
 </head>
+
 <body>
-<form>
-    Wine TYpe:  <br><input type="radio" name="type" value="Red" > Red Wine<br>
-    <input type="radio" name="type" value="White"> White Wine<br>
-    Full Name: <br><input type ="text" name="name"><br>
-    Type your Review: <br> <input type ="text" name="review">
-    <br> <input type="submit" value="Submit">
-</form>
+    <form>
+        Full Name: <br><input type="text" name="name"><br>
+
+            <select id="wine_types" name="Wines">
+                <option value="merlot">Merlot</option>
+                <option value="cabsauv">Cabernet Sauvignon</option>
+                <option value="shiraz">Shiraz</option>
+                <option value="chianti">Chianti</option>
+                <option value="moscato">Moscato</option>
+                <option value="chardonnay">Chardonnay</option>
+                <option value="riesling">Riesling</option>
+                <option value="pinot_grigio">Pinot Grigio</option>
+            </select> <br>
+
+        Type your Review: <br> <input type="text" name="review">
+        <br> <input type="submit" value="Submit">
+    </form>
 </body>
+
 </html>
