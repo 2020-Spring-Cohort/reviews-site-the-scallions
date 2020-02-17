@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="CategoryStyle.css">
+</head>
+<body>
+   <section class="homepage_details">
+<h1 class="homepage_title1"> The Wine, answer to all the problems</h1>
+     <h2 class="homepage_title2">gate to the happiness </h2>
+<p class="homepage_wine_description">
+    Wine is not only a great way to complement a good meal, it's also filled with health benefits, according to
+    many research studies. There many types of wines. The two main types are red and white wines. But what makes this
+    beverage so great? you let us know by your reviews: please follow the links below to check out these wines in detail.</p>
+</section>
+
+<section class="homepage_links">
+    <div  th:each="category:${categories}">
+
+
+
+
+
+    <a th:text="${category.type}" th:href="@{'/categories/'+ ${category.id}}">categoryName</a>
+
+    </div>
+
+
+
+</section>
+
+</body>
+</html>

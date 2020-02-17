@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
 <form>
-    Full Name: <br><input type="text" name="name"><br>
+    <lable>Full Name: <br><input th:text="${Review.name}" type="text" name="userName"><br></lable>
 
     <select id="wine_types" name="Wines">
         <option value="merlot">Merlot</option>
@@ -18,7 +18,7 @@
         <option value="riesling">Riesling</option>
         <option value="pinot_grigio">Pinot Grigio</option>
     </select> <br>
-    Type your Review: <br> <input type="text" name="review">
+    <lable>Type your Review: <br> <input type="text" name="review"></lable>
     <br> <input type="submit" value="Submit">
 </form>
 </body>
