@@ -11,11 +11,13 @@ import java.util.HashMap;
 @Controller
 public class CategoryController {
     private HashMap<Long, Category> categories;
+    private CategoryStorage categoryStorage;
 
-    public CategoryController() {
+    public CategoryController(CategoryStorage categoryStorage) {
+        this.categoryStorage = categoryStorage;
         categories = new HashMap<>();
-        Category redWine = new Category("Red Wine", 34, "this is Red Wine");
-        Category whiteWine = new Category("White Wine", 35, "this is whitewine");
+        Category redWine = new Category("Red Wine", 34, "this is red wine");
+        Category whiteWine = new Category("White Wine", 35, "this is white wine");
         categories.put(redWine.getId(), redWine);
         categories.put(whiteWine.getId(), whiteWine);
     }
@@ -26,12 +28,11 @@ public class CategoryController {
         return "HomePage";
 
     }
-    @RequestMapping("/{id}")
+    @RequestMapping("/categories/{id}")
     public String displaySingleCategory(@PathVariable Long id, Model model) {
-        Category retrieveCategory = categories.get(id);
-        model. addAttribute("1234",retrieveCategory);
+        Category retrieveCategory = categoryStorage.findCategoryById(id);
+        model.addAttribute("category",retrieveCategory);
         return "CategoryTemplate";
-
 
 
     }
