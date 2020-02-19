@@ -16,15 +16,15 @@ public class CategoryController {
     public CategoryController(CategoryStorage categoryStorage) {
         this.categoryStorage = categoryStorage;
         categories = new HashMap<>();
-        Category redWine = new Category("Red Wine", 34, "this is red wine");
-        Category whiteWine = new Category("White Wine", 35, "this is white wine");
+        Category redWine = new Category("Red Wine", "this is red wine");
+        Category whiteWine = new Category("White Wine",  "this is white wine");
         categories.put(redWine.getId(), redWine);
         categories.put(whiteWine.getId(), whiteWine);
     }
 
     @RequestMapping("/")
     public String displayCategories(Model model) {
-        model.addAttribute("categories", categories.values());
+        model.addAttribute("categories", categoryStorage.findAllCategories());
         return "HomePage";
 
     }

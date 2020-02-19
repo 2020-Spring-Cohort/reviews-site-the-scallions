@@ -1,19 +1,32 @@
 package org.wecancodeit.reviews.Models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.util.Objects;
+
+@Entity
 public class Review {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    @ManyToOne
     private Category category;
     private String name;
     private String text; //text of the review
-    private long id;
 
 
-    public Review(Category category, String name, String text, long reviewId) {
+
+    public Review(Category category, String name, String text) {
         this.category = category;
         this.name = name;
         this.text = text;
-        this.id = reviewId;
+
 
     }
+    public Review(){}
 
     public Category getCategory() {
         return category;
@@ -28,7 +41,33 @@ public class Review {
     }
 
 
-    public long getid() {
+    public Long getId() {
         return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Review)) return false;
+        Review review = (Review) o;
+        return id.equals(review.id) &&
+                Objects.equals(category, review.category) &&
+                Objects.equals(name, review.name) &&
+                Objects.equals(text, review.text);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, category, name, text);
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id=" + id +
+                ", category=" + category +
+                ", name='" + name + '\'' +
+                ", text='" + text + '\'' +
+                '}';
     }
 }

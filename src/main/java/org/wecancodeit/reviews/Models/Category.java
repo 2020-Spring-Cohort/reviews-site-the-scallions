@@ -1,36 +1,73 @@
 package org.wecancodeit.reviews.Models;
 
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Collection;
+import java.util.Objects;
 
+
+@Entity
 public class Category {
-    private String type; //red or white
-    private long id; //specific name
-    private String description; //manufacturer's description
-    private Set tags; //using sets for ease of checking using .contains(object) method
 
-    public Category(String type, long id, String description) {
+    @Id
+    @GeneratedValue
+    private Long id; //specific name
+
+    private String type; //red or white
+    private String description; //manufacturer's description
+
+
+
+    @OneToMany(mappedBy = "category")
+    private Collection <Review> reviews;
+
+    public Category(String type, String description) {
         this.type = type;
-        this.id = id;
         this.description = description;
     }
+    public Category(){}
 
     public String getType() {
         return type;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     public String getDescription() {
+
         return description;
     }
 
-    public Set getTags() {
-        return tags;
+    public Collection<Review> getReview() {
+        return reviews;
     }
 
-    public boolean hasTag(String tag){
-        return this.tags.contains(tag.toUpperCase());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Category)) return false;
+        Category category = (Category) o;
+        return id.equals(category.id) &&
+                Objects.equals(type, category.type) &&
+                Objects.equals(description, category.description);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type, description);
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
