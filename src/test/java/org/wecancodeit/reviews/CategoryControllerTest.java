@@ -46,15 +46,15 @@ public class CategoryControllerTest {
         String viewName = underTest.displaySingleCategory((long) 34, mockModel);
         assertThat(viewName).isEqualTo("CategoryTemplate");
     }
-//    @Test
-//    public void shouldGoToIndividualEndPoint() throws Exception {
-//        Category testCategory = new Category("Red",34L,"Flannigan");
-//        when(mockStorage.findCategoryById(34L)).thenReturn(testCategory);
-//        mockMvc.perform(get("/categories/34"))
-//                .andExpect(status().isOk())
-//                .andExpect(view().name("CategoryTemplate"))
-//                .andExpect(model().attribute("category", testCategory));
-//    }
+    @Test
+    public void shouldGoToIndividualEndPoint() throws Exception {
+        Category testCategory = new Category("Red","Flannigan");
+        when(mockStorage.findCategoryById(34L)).thenReturn(testCategory);
+        mockMvc.perform(get("/categories/34"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("CategoryTemplate"))
+                .andExpect(model().attribute("category", testCategory));
+    }
 
     @Test
     public void categoryControllerShouldInstantiate() throws Exception {

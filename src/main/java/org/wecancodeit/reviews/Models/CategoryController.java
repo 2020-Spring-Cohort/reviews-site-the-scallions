@@ -22,7 +22,7 @@ public class CategoryController {
         categories.put(whiteWine.getId(), whiteWine);
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/categories")
     public String displayCategories(Model model) {
         model.addAttribute("categories", categoryStorage.findAllCategories());
         return "HomePage";

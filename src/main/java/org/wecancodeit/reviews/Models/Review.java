@@ -1,14 +1,13 @@
 package org.wecancodeit.reviews.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import org.wecancodeit.reviews.HashTag;
+
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 public class Review {
-
     @Id
     @GeneratedValue
     private Long id;
@@ -16,6 +15,9 @@ public class Review {
     private Category category;
     private String name;
     private String text; //text of the review
+   @ManyToMany
+   private Collection<HashTag> hashtags;
+
 
 
 

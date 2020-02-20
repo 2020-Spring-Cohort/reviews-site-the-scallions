@@ -37,4 +37,11 @@ public class JpaWiringTest {
         assertThat(retrievedCategory.getReview()).contains(testReview);
     }
 
+    @Test
+    public void reviewShouldBeAbleToHaveMultipleHashtags() {
+        HashTag hashTag1 = new HashTag("sweet");
+        HashTag hashTag2 = new HashTag("dry");
+        Category testCategory = new Category("Red", "Jammy");
+        Review testReview1 = new Review(testCategory, "userName", "reviewText", hashTag1, hashTag2);
+    }
 }
