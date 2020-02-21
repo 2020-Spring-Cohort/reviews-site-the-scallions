@@ -3,7 +3,10 @@ package org.wecancodeit.reviews.Models;
 import org.wecancodeit.reviews.HashTag;
 
 import javax.persistence.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Objects;
 
 @Entity
@@ -21,10 +24,11 @@ public class Review {
 
 
 
-    public Review(Category category, String name, String text) {
+    public Review(Category category, String name, String text, HashTag... hashTags) {
         this.category = category;
         this.name = name;
         this.text = text;
+        this.hashtags = Arrays.asList(hashTags);
 
 
     }
@@ -71,5 +75,9 @@ public class Review {
                 ", name='" + name + '\'' +
                 ", text='" + text + '\'' +
                 '}';
+    }
+
+    public Collection<HashTag> getHashTag() {
+        return hashtags;
     }
 }

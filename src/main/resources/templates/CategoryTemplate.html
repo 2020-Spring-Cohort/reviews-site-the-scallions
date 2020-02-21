@@ -9,9 +9,16 @@
 <section class="details">
     <h1 th:text="${category.type}" class = "category-type">xxx</h1>
         <h2 th:text="${category.id}" class="category-id">xxx</h2>
-    <p th:text="${category.description}" class="category-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur et aut magni deleniti ex magnam illo eveniet earum, eius iusto voluptatibus eum quo perferendis. Ratione libero voluptatum nulla maiores deleniti.</p>
+    <p th:text="${category.description}" class="category-description">  XXX-XXX</p>
 </section>
 
-<a class="nav_write-review" href="Review.html" >Please Write a Review</a>
+<h2>Please Write a Review</h2>
+<form action="add-category" method="POST">
+
+    <lable>Enter Wine Name</lable><input type="text" name="Wine-Name">
+    <br><lable>Enter your Review</lable><input type="text" name="Review-Text">
+    <br><lable>Enter your name</lable><input type="text" name="User-Name"><br>
+    <button type="submit">Add Review</button>
+</form>
 </body>
 </html>
