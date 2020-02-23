@@ -5,9 +5,9 @@ import org.wecancodeit.reviews.Models.Review;
 
 import java.util.Collection;
 
-@Repository
+
 public interface ReviewStorage {
-    Collection<Review> getAll();
+
 
     Review findReviewById(Long id);
 

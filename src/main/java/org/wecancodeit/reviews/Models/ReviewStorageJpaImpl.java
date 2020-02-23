@@ -1,24 +1,27 @@
 package org.wecancodeit.reviews.Models;
 
+import org.springframework.stereotype.Service;
 import org.wecancodeit.reviews.ReviewStorage;
 
 import java.util.Collection;
 
+@Service
 public class ReviewStorageJpaImpl implements ReviewStorage {
+    private final ReviewRepository reviewRepository;
 
-    @Override
-    public Collection<Review> getAll() {
-        return (Collection<Review>) repository.findAll();
+    public ReviewStorageJpaImpl(ReviewRepository reviewRepository) {
+        this.reviewRepository = reviewRepository;
     }
+
 
     @Override
     public Review findReviewById(Long id) {
-        return repository.findById(id).get();
+        return reviewRepository.findById(id).get();
     }
 
     @Override
     public void store(Review reviewToStore) {
-        return repository.save(newReview);
+         reviewRepository.save(reviewToStore);
 
     }
 }
