@@ -6,8 +6,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
-import org.wecancodeit.reviews.Models.Category;
-import org.wecancodeit.reviews.Models.Review;
+import org.wecancodeit.Models.Category;
+import org.wecancodeit.Models.Review;
+import org.wecancodeit.controllers.ReviewController;
+import org.wecancodeit.storage.ReviewStorage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;

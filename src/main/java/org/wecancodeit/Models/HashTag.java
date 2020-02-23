@@ -1,7 +1,4 @@
-package org.wecancodeit.reviews;
-
-import com.sun.xml.bind.v2.model.core.ID;
-import org.wecancodeit.reviews.Models.Review;
+package org.wecancodeit.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

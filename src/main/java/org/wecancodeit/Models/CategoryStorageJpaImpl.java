@@ -1,9 +1,10 @@
-package org.wecancodeit.reviews.Models;
+package org.wecancodeit.Models;
 
 import org.springframework.stereotype.Service;
+import org.wecancodeit.storage.CategoryStorage;
+import org.wecancodeit.storage.repositories.CategoryRepository;
 
 import java.util.Collection;
-import java.util.Optional;
 
 @Service
 public class CategoryStorageJpaImpl implements CategoryStorage {

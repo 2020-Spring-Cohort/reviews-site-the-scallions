@@ -1,6 +1,7 @@
-package org.wecancodeit.reviews.Models;
+package org.wecancodeit.storage.repositories;
 
 import org.springframework.data.repository.CrudRepository;
+import org.wecancodeit.Models.Review;
 
 
 import java.util.Optional;

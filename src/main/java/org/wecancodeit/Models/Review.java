@@ -1,12 +1,8 @@
-package org.wecancodeit.reviews.Models;
-
-import org.wecancodeit.reviews.HashTag;
+package org.wecancodeit.Models;
 
 import javax.persistence.*;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Objects;
 
 @Entity
@@ -20,7 +16,6 @@ public class Review {
     private String text; //text of the review
    @ManyToMany
    private Collection<HashTag> hashtags;
-
 
 
 

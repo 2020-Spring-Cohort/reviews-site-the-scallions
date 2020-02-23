@@ -5,10 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import org.wecancodeit.reviews.Models.Category;
-import org.wecancodeit.reviews.Models.CategoryRepository;
-import org.wecancodeit.reviews.Models.Review;
-import org.wecancodeit.reviews.Models.ReviewRepository;
+import org.wecancodeit.Models.*;
+import org.wecancodeit.storage.repositories.CategoryRepository;
+import org.wecancodeit.storage.repositories.HashTagRepository;
+import org.wecancodeit.storage.repositories.ReviewRepository;
+
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
