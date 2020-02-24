@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Red Wines</title>
-    <link rel="stylesheet" type="text/css" href="CategoryStyle.css">
+    <link rel="stylesheet" type="text/css" href="../static/CategoryStyle.css">
 </head>
 <body>
 <section class="details">
@@ -11,13 +11,17 @@
         <h2 th:text="${category.id}" class="category-id">xxx</h2>
     <p th:text="${category.description}" class="category-description">  XXX-XXX</p>
 </section>
+<h2 th:each="review:${category.review}"><a th:href="@{'/review/'+ ${review.id}}"
+                                    th:text="${review.wineName}">Review</a>
+</h2>
 
 <h2>Please Write a Review</h2>
-<form action="add-category" method="POST">
 
-    <lable>Enter Wine Name</lable><input type="text" name="Wine-Name">
-    <br><lable>Enter your Review</lable><input type="text" name="Review-Text">
-    <br><lable>Enter your name</lable><input type="text" name="User-Name"><br>
+<form action="/add-review" method="POST">
+
+    <lable>Enter Wine Name</lable><input type="text" name="wineName">
+    <br><lable>Enter your Review</lable><input type="text" name="reviewText">
+    <input th:value="${category.id}" type="hidden" name="categoryId">
     <button type="submit">Add Review</button>
 </form>
 </body>

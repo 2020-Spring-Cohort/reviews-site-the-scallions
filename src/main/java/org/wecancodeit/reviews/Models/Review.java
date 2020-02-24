@@ -3,10 +3,8 @@ package org.wecancodeit.reviews.Models;
 import org.wecancodeit.reviews.HashTag;
 
 import javax.persistence.*;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Objects;
 
 @Entity
@@ -16,7 +14,7 @@ public class Review {
     private Long id;
     @ManyToOne
     private Category category;
-    private String name;
+    private String wineName;
     private String text; //text of the review
    @ManyToMany
    private Collection<HashTag> hashtags;
@@ -24,9 +22,9 @@ public class Review {
 
 
 
-    public Review(Category category, String name, String text, HashTag... hashTags) {
+    public Review(Category category, String wineName, String text, HashTag... hashTags) {
         this.category = category;
-        this.name = name;
+        this.wineName = wineName;
         this.text = text;
         this.hashtags = Arrays.asList(hashTags);
 
@@ -38,8 +36,8 @@ public class Review {
         return category;
     }
 
-    public String getName() {
-        return name;
+    public String getWineName() {
+        return wineName;
     }
 
     public String getText() {
@@ -58,13 +56,13 @@ public class Review {
         Review review = (Review) o;
         return id.equals(review.id) &&
                 Objects.equals(category, review.category) &&
-                Objects.equals(name, review.name) &&
+                Objects.equals(wineName, review.wineName) &&
                 Objects.equals(text, review.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, category, name, text);
+        return Objects.hash(id, category, wineName, text);
     }
 
     @Override
@@ -72,7 +70,7 @@ public class Review {
         return "Review{" +
                 "id=" + id +
                 ", category=" + category +
-                ", name='" + name + '\'' +
+                ", name='" + wineName + '\'' +
                 ", text='" + text + '\'' +
                 '}';
     }

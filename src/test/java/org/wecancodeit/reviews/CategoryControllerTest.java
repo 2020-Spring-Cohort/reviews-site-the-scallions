@@ -25,12 +25,14 @@ public class CategoryControllerTest {
     private CategoryController underTest;
     private CategoryStorage mockStorage;
     private Model mockModel;
+    private ReviewStorage reviewStorage;
 
     @BeforeEach
     public void setUp() {
         mockModel = mock(Model.class);
         mockStorage = mock(CategoryStorage.class);
-        underTest = new CategoryController(mockStorage);
+        reviewStorage = mock(ReviewStorage.class);
+        underTest = new CategoryController(mockStorage, reviewStorage);
         mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
     }
     @Test

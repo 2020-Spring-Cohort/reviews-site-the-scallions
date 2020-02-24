@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -7,14 +7,12 @@
 </head>
 
 <body>
-<h1>Type</h1>
-<h2>Wine Names</h2>
-<h2>HashTags</h2>
-<h2>Username</h2>
-<h3>Review Test</h3>
-<a href="HomePage.html"> Home Page</a>
-<a href="CategoryTemplate.html"> Wine Category Page</a>
+<!--<h2 th:text="${Category.type}">Wine Type</h2>-->
+<h2 th:text="${Review.wineName}"> Wine Names</h2>
+<!--<h2 th:text="${HashTag.name}">HashTags</h2>-->
+<h3 th:text="${Review.text}"> Review Text</h3>
+<a th:href="'/categories'"> Home Page</a>
+
 
 </body>
-
 </html>

@@ -2,8 +2,8 @@ package org.wecancodeit.reviews;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.reviews.Models.Category;
 import org.wecancodeit.reviews.Models.Review;
 
 @Controller
@@ -20,4 +20,5 @@ public class ReviewController {
         model.addAttribute("Review", retrievedReview);
         return "ReviewTemplate";
     }
+
 }

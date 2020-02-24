@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="CategoryStyle.css">
+    <link rel="stylesheet" type="text/css" th:href="@{CategoryStyle.css}">
 </head>
 <body>
    <section class="homepage_details">
@@ -25,7 +25,7 @@
 
 
 
-    <a th:text="${category.type}" th:href="@{'/categories/'+ ${category.id}}">categoryName</a>
+    <a th:text="${category.type}" th:href="@{'/categories/'+ ${category.id}}">category Name</a>
 
     </div>
 
