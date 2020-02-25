@@ -5,10 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import org.wecancodeit.reviews.Models.Category;
-import org.wecancodeit.reviews.Models.CategoryRepository;
-import org.wecancodeit.reviews.Models.Review;
-import org.wecancodeit.reviews.Models.ReviewRepository;
+import org.wecancodeit.reviews.Models.*;
+
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,12 +21,14 @@ public class JpaWiringTest {
     private TestEntityManager entityManager;
     @Autowired
     private HashTagRepository hashTagRepo;
+    @Autowired
+    private CommentRepository commentRepo;
 
     @Test
 
     public void categoryShouldHaveAListOfReviews() {
         Category testCategory = new Category("Red Wine", "Flannigan");
-        Review testReview = new Review(testCategory, "Author", "review text");
+        Review testReview = new Review(testCategory, "Red", "review text");
         categoryRepo.save(testCategory);
         reviewRepo.save(testReview);
         entityManager.flush();
@@ -44,9 +44,9 @@ public class JpaWiringTest {
         HashTag hashTag1 = new HashTag("sweet");
         HashTag hashTag2 = new HashTag("dry");
         Category testCategory = new Category("Red", "Jammy");
-        Review testReview1 = new Review(testCategory, "userName", "reviewText", hashTag1, hashTag2);
-        Review testReview2 = new Review(testCategory, "userName", "reviewText", hashTag2, hashTag2);
-        Review testReview3 = new Review(testCategory, "userName", "reviewText", hashTag1, hashTag2);
+        Review testReview1 = new Review(testCategory, "White", "reviewText",  hashTag1, hashTag2);
+        Review testReview2 = new Review(testCategory, "Red", "reviewText",  hashTag2, hashTag2);
+        Review testReview3 = new Review(testCategory, "White", "reviewText", hashTag1, hashTag2);
         hashTagRepo.save(hashTag1);
         hashTagRepo.save(hashTag2);
         categoryRepo.save(testCategory);
@@ -61,14 +61,23 @@ public class JpaWiringTest {
         assertThat(retrievedReview.getHashTag()).contains(hashTag1, hashTag2);
         assertThat(retrievedHashTag1.getReviews()).contains(testReview1, testReview3);
         assertThat(retrievedHashTag2.getReviews()).contains(testReview1, testReview2);
-
-
     }
-
-
-
-
-
-
-
+    @Test
+    public void reviewsShouldBeAbleToHaveMultipleComments() {
+        Category testCategory = new Category("Red", "Jammy");
+        Review testReview1 = new Review(testCategory, "red", "reviewText");
+        Comment comment1 = new Comment("nice", testReview1);
+        Comment comment2 = new Comment("nasty", testReview1);
+        commentRepo.save(comment1);
+        commentRepo.save(comment2);
+        categoryRepo.save(testCategory);
+        reviewRepo.save(testReview1);
+        entityManager.flush();
+        entityManager.clear();
+        Review retrievedReview = reviewRepo.findById(testReview1.getId()).get();
+        Comment retrievedComment1 = commentRepo.findById(comment1.getId()).get();
+        Comment retrievedComment2 = commentRepo.findById(comment1.getId()).get();
+        assertThat(retrievedComment1.getReview().equals(testReview1));
+        assertThat(retrievedComment2.getReview().equals(testReview1));
+    }
 }

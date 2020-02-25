@@ -17,6 +17,12 @@
     <input name = "hashTagName" type="text">
     <button type="submit">Add Hashtag</button>
 </form>
+<div th:each="comment : ${Review.comments}" th:text = "${comment.comment}"></div>
+
+<form th:action="'/review/' + ${Review.id} + '/add-comment'" method="POST">
+    <input name = "comment" type="text">
+    <button type="submit">Add Comment</button>
+</form>
 
 <a th:href="'/categories'"> Home Page</a>
 <a th:href="@{'/categories/'+ ${Review.getCategory().id}}">Review Page</a>

@@ -14,10 +14,10 @@ public class Review {
     private Category category;
     private String wineName;
     private String text; //text of the review
-   @ManyToMany
+   @ManyToMany()
    private Set<HashTag> hashtags;
-
-
+   @OneToMany()
+    private Set<Comment> comments;
 
 
     public Review(Category category, String wineName, String text, HashTag... hashTags) {
@@ -26,11 +26,14 @@ public class Review {
         this.text = text;
 //        this.hashtags = Arrays.asList(hashTags);
         this.hashtags = new HashSet<>();
+        this.comments = new HashSet<>();
 
 
 
     }
     public Review(){}
+
+    public Collection<Comment> getComments() { return comments;}
     public Collection<HashTag> getHashtags() {
         return hashtags;
     }
@@ -81,8 +84,15 @@ public class Review {
     public Collection<HashTag> getHashTag() {
         return hashtags;
     }
+    public Collection<Comment> getComment() {
+        return comments;
+    }
 
     public void addHashTag(HashTag hashTagToAddToReview) {
         hashtags.add(hashTagToAddToReview);
+    }
+
+    public void addComment(Comment commentToAddToReview) {
+        comments.add(commentToAddToReview);
     }
 }

@@ -1,10 +1,9 @@
 package org.wecancodeit.reviews;
 
-import javafx.scene.text.FontPosture;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.wecancodeit.reviews.Models.Category;
+import org.wecancodeit.reviews.Models.Comment;
 import org.wecancodeit.reviews.Models.Review;
 
 import java.util.Optional;
@@ -13,11 +12,13 @@ import java.util.Optional;
 public class ReviewController {
     private final ReviewStorage reviewStorage;
     private HashTagRepository hashTagRepo;
+    private CommentRepository commentRepo;
 
-    public ReviewController(ReviewStorage reviewStorage, HashTagRepository hashTagRepo) {
+    public ReviewController(ReviewStorage reviewStorage, HashTagRepository hashTagRepo, CommentRepository commentRepo) {
 
         this.reviewStorage = reviewStorage;
         this.hashTagRepo = hashTagRepo;
+        this.commentRepo = commentRepo;
     }
     @RequestMapping("/review/{id}")
     public String displayReview(@PathVariable Long id, Model model) {
@@ -38,6 +39,16 @@ public class ReviewController {
         Review reviewToAddHashTagTo = reviewStorage.findReviewById(id);
         reviewToAddHashTagTo.addHashTag(hashTagToAddToReview);
         reviewStorage.store(reviewToAddHashTagTo);
+        return "redirect:/review/" + id;
+    }
+    @PostMapping("/review/{id}/add-comment")
+    public String addCommentToReview(@RequestParam String comment, @PathVariable Long id) {
+        Comment commentToAddToReview;
+            commentToAddToReview = new Comment(comment,reviewStorage.findReviewById(id) );
+            commentRepo.save(commentToAddToReview);
+        Review reviewToAddCommentTo = reviewStorage.findReviewById(id);
+        reviewToAddCommentTo.addComment(commentToAddToReview);
+        reviewStorage.store(reviewToAddCommentTo);
         return "redirect:/review/" + id;
     }
 
