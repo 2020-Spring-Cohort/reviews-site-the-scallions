@@ -3,9 +3,7 @@ package org.wecancodeit.reviews.Models;
 import org.wecancodeit.reviews.HashTag;
 
 import javax.persistence.*;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 public class Review {
@@ -17,7 +15,7 @@ public class Review {
     private String wineName;
     private String text; //text of the review
    @ManyToMany
-   private Collection<HashTag> hashtags;
+   private Set<HashTag> hashtags;
 
 
 
@@ -26,11 +24,16 @@ public class Review {
         this.category = category;
         this.wineName = wineName;
         this.text = text;
-        this.hashtags = Arrays.asList(hashTags);
+//        this.hashtags = Arrays.asList(hashTags);
+        this.hashtags = new HashSet<>();
+
 
 
     }
     public Review(){}
+    public Collection<HashTag> getHashtags() {
+        return hashtags;
+    }
 
     public Category getCategory() {
         return category;
@@ -77,5 +80,9 @@ public class Review {
 
     public Collection<HashTag> getHashTag() {
         return hashtags;
+    }
+
+    public void addHashTag(HashTag hashTagToAddToReview) {
+        hashtags.add(hashTagToAddToReview);
     }
 }

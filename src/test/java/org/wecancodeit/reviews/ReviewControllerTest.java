@@ -21,11 +21,13 @@ public class ReviewControllerTest {
     private Model model;
     private ReviewStorage mockStorage;
     private Review testReview;
+    private HashTagRepository hashTagRepo;
 
 @BeforeEach
     void setUp() {
         mockStorage = mock(ReviewStorage.class);
-        underTest = new ReviewController(mockStorage);
+        hashTagRepo = mock(HashTagRepository.class);
+        underTest = new ReviewController(mockStorage, hashTagRepo);
         model = mock(Model.class);
         Category testCategory = new Category("Red Wine", "fantastic");
         testReview = new Review( testCategory, "Test Description", "review text");

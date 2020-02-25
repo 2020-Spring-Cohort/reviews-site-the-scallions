@@ -7,12 +7,21 @@
 </head>
 
 <body>
-<!--<h2 th:text="${Category.type}">Wine Type</h2>-->
+<h2 th:text="${Review.getCategory().type}">Wine Type</h2>
 <h2 th:text="${Review.wineName}"> Wine Names</h2>
-<!--<h2 th:text="${HashTag.name}">HashTags</h2>-->
 <h3 th:text="${Review.text}"> Review Text</h3>
+
+<div th:each="hashtag : ${Review.hashtags}" th:text = "${hashtag.name}"></div>
+
+<form th:action="'/review/' + ${Review.id} + '/add-hashtag'" method="POST">
+    <input name = "hashTagName" type="text">
+    <button type="submit">Add Hashtag</button>
+</form>
+
 <a th:href="'/categories'"> Home Page</a>
+<a th:href="@{'/categories/'+ ${Review.getCategory().id}}">Review Page</a>
 
-
+<!--<h2 th:each="hashTag: ${Review.hashtags}"-->
+<!--    th:text="${Review.getHashTag()}+'">Martin Fowler</h2>-->
 </body>
 </html>
