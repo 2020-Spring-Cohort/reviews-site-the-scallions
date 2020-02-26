@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Red Wines</title>
-    <link rel="stylesheet" type="text/css" href="../static/CategoryStyle.css">
+    <link rel="stylesheet" type="text/css" href="../CTStyle.css">
 </head>
 <body>
+
 <section class="details">
-    <h1 th:text="${category.type}" class = "category-type">xxx</h1>
+    <h2 th:text="${category.type}" class = "category-type">xxx</h2>
         <h2 th:text="${category.id}" class="category-id">xxx</h2>
-    <p th:text="${category.description}" class="category-description">  XXX-XXX</p>
-</section>
+    <h2 th:text="${category.description}" class="category-description">  XXX-XXX</h2>
+
+
 <h2 th:each="review:${category.review}"><a th:href="@{'/review/'+ ${review.id}}"
                                     th:text="${review.wineName}">Review</a>
 </h2>
+</section>
 
-<h2>Please Write a Review</h2>
 
-<form action="/add-review" method="POST">
+
+<div class="reviewfields">
+    <h2>Please Write a Review</h2>
+    <form action="/add-review" method="POST">
 
     <lable>Enter Wine Name</lable><input type="text" name="wineName">
     <br><lable>Enter your Review</lable><input type="text" name="reviewText">
     <input th:value="${category.id}" type="hidden" name="categoryId">
     <button type="submit">Add Review</button>
 </form>
+</div>
+
 <a th:href="'/categories'"> Home Page</a>
 </body>
 </html>

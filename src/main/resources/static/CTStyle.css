@@ -1,0 +1,40 @@
+
+body{
+    background-image: url(https://files.slack.com/files-pri/T14LST83D-FU7995BFV/white-and-red-wines-come-at-all-different-price-points.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+a:visited{
+    color: lightgray;
+}
+
+a{
+    color: darkcyan;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    color: white;
+}
+
+
+.reviewfields{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button{
+    margin: 10px;
+}

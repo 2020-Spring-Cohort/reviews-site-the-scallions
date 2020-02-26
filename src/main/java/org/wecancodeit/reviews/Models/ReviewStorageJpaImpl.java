@@ -20,8 +20,8 @@ public class ReviewStorageJpaImpl implements ReviewStorage {
     }
 
     @Override
-    public void store(Review reviewToStore) {
-         reviewRepository.save(reviewToStore);
+    public void store(Review review) {
+         reviewRepository.save(review);
 
     }
 }

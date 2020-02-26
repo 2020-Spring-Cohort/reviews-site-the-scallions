@@ -23,7 +23,10 @@ body{
 .homepage_wine_description {
     font-size: 20px;
     text-align: center;
-    padding: 150px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 75px;
+    padding-bottom: 50px;
     color: whitesmoke;
     line-height: 1.5;
 
@@ -33,37 +36,26 @@ body{
     flex-direction: row;
     justify-content: center;
     align-content: space-evenly;
-    border: 1px solid black;
-    padding: 25px;
-    border-radius: 5px;
-    height: 60px;
-    width: 100%;
+    line-height: 3;
     text-align: center;
+    font-weight: bolder;
     text-decoration: none;
     cursor: pointer;
-
-
+    font-size: x-large;
 }
+    a:visited{
+        color: black;
+    }
 
-
-.red_link {
-    display: inline;
-    margin-right: 50px;
-    border: 1px solid black;
-    padding: 20px;
-    font-size: 50px;
-    text-decoration: none;
-
-}
-
-.white_link{
-    margin-left: 50px;
-}
 .details{
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
+}
 
+.category-type{
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 
 .wine-type{

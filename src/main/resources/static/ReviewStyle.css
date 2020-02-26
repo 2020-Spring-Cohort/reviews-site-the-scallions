@@ -1,0 +1,30 @@
+
+body{
+    background-image: url(https://i.pinimg.com/originals/58/ec/57/58ec5744b0f11cc03a8d2bccd5cfafc0.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    margin-right: 50%;
+}
+a:visited{
+    color: lightgray;
+}
+
+a{
+    margin-top: 25px;
+    margin-right: 15px;
+    color: darkcyan;
+}
+
+form{
+    margin-top: 20px;
+}
+
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button{
+margin: 10px;
+}
