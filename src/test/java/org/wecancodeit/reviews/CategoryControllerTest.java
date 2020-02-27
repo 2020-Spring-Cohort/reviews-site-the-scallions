@@ -6,8 +6,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 import org.wecancodeit.reviews.Models.Category;
-import org.wecancodeit.reviews.Models.CategoryController;
-import org.wecancodeit.reviews.Models.CategoryStorage;
+import org.wecancodeit.reviews.controllers.CategoryController;
+import org.wecancodeit.reviews.storage.CategoryStorage;
+import org.wecancodeit.reviews.storage.ReviewStorage;
 
 import java.util.Collections;
 import java.util.List;
@@ -59,12 +60,12 @@ public class CategoryControllerTest {
     }
 
     @Test
-    public void categoryControllerShouldInstantiate() throws Exception {
+    public void categoryControllerShouldDisplayAllCategories() throws Exception {
         Category testCategory = new Category("Red","Flannigan");
         Category whiteWine = new Category("White Wine",  "this is white wine");
         List<Category> categoryCollection = Collections.singletonList(testCategory);
         when(mockStorage.findAllCategories()).thenReturn(categoryCollection);
-        mockMvc.perform(get("/"))
+        mockMvc.perform(get("/categories"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("HomePage"))

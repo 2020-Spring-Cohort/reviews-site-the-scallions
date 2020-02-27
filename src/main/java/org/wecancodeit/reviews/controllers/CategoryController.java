@@ -1,9 +1,12 @@
-package org.wecancodeit.reviews.Models;
+package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.wecancodeit.reviews.ReviewStorage;
+import org.wecancodeit.reviews.Models.Category;
+import org.wecancodeit.reviews.storage.CategoryStorage;
+import org.wecancodeit.reviews.Models.Review;
+import org.wecancodeit.reviews.storage.ReviewStorage;
 
 import java.util.HashMap;
 
@@ -38,18 +41,6 @@ public class CategoryController {
         return "CategoryTemplate";
     }
 
-//    @RequestMapping("reviews/{id}")
-//    public String displayReviews(@PathVariable Long id, Model model) {
-//        Category retrieveCategory = categoryStorage.findCategoryById(id);
-//        model.addAttribute("reviews",retrieveCategory.getReview());
-//        return "CategoryTemplate";
-//}
-//    @GetMapping("/review/{id}")
-//    public String displaySingleReview(@PathVariable Long id, Model model) {
-//        Review retrievedReview = reviewStorage.findReviewById(id);
-//        model.addAttribute("Review", retrievedReview);
-//        return "CategoryTemplate";
-//    }
     @PostMapping("/add-review")
     public String addReview(@RequestParam String wineName, @RequestParam String reviewText, @RequestParam Long categoryId) {
         Category category = categoryStorage.findCategoryById(categoryId);

@@ -9,7 +9,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.wecancodeit.reviews.Models.Category;
-import org.wecancodeit.reviews.Models.CategoryStorage;
+import org.wecancodeit.reviews.storage.CategoryStorage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,7 +39,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         @Test
         public void specificEndPointReturnsOK() {
             ResponseEntity<String> response = testRestTemplate.getForEntity(
-                    "http://localhost:" + port + "/categories/" + testCategory.getType(), String.class);
+                    "http://localhost:" + port + "/categories/" + testCategory.getId(), String.class);
             assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         }
     }

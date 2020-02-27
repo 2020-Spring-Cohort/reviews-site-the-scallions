@@ -1,6 +1,7 @@
-package org.wecancodeit.reviews;
+package org.wecancodeit.reviews.storage.repositories;
 
 import org.springframework.data.repository.CrudRepository;
+import org.wecancodeit.reviews.Models.HashTag;
 
 import java.util.Optional;
 

@@ -1,9 +1,10 @@
 
 body{
-    background-image: url(https://files.slack.com/files-pri/T14LST83D-FU7995BFV/white-and-red-wines-come-at-all-different-price-points.jpg);
+    background-image: url("White-and-red-wines-come-at-all-different-price-points.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
+
 }
 a:visited{
     color: lightgray;
@@ -20,6 +21,7 @@ a{
     align-items: center;
     line-height: 1;
     color: white;
+
 }
 
 
@@ -28,13 +30,22 @@ a{
     margin-bottom: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
+
+
+
 }
 
 input{
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left:15px;
+
+}
+a {
+    font-size: 20px;
 }
 
 button{
-    margin: 10px;
+    margin: 12px;
+
 }

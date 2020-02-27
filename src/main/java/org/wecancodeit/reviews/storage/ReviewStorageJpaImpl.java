@@ -1,9 +1,8 @@
-package org.wecancodeit.reviews.Models;
+package org.wecancodeit.reviews.storage;
 
 import org.springframework.stereotype.Service;
-import org.wecancodeit.reviews.ReviewStorage;
-
-import java.util.Collection;
+import org.wecancodeit.reviews.Models.Review;
+import org.wecancodeit.reviews.storage.repositories.ReviewRepository;
 
 @Service
 public class ReviewStorageJpaImpl implements ReviewStorage {

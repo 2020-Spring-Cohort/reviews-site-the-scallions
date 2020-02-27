@@ -1,10 +1,14 @@
-package org.wecancodeit.reviews;
+package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.reviews.storage.repositories.CommentRepository;
+import org.wecancodeit.reviews.Models.HashTag;
+import org.wecancodeit.reviews.storage.repositories.HashTagRepository;
 import org.wecancodeit.reviews.Models.Comment;
 import org.wecancodeit.reviews.Models.Review;
+import org.wecancodeit.reviews.storage.ReviewStorage;
 
 import java.util.Optional;
 

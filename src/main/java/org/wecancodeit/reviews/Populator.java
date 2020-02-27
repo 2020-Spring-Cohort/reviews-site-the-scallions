@@ -1,8 +1,11 @@
-package org.wecancodeit.reviews.Models;
+package org.wecancodeit.reviews;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.wecancodeit.reviews.ReviewStorage;
+import org.wecancodeit.reviews.Models.Category;
+import org.wecancodeit.reviews.Models.Review;
+import org.wecancodeit.reviews.storage.ReviewStorage;
+import org.wecancodeit.reviews.storage.CategoryStorage;
 
 @Component
 public class Populator implements CommandLineRunner {

@@ -1,9 +1,10 @@
-package org.wecancodeit.reviews.Models;
+package org.wecancodeit.reviews.storage;
 
 import org.springframework.stereotype.Service;
+import org.wecancodeit.reviews.Models.Category;
+import org.wecancodeit.reviews.storage.repositories.CategoryRepository;
 
 import java.util.Collection;
-import java.util.Optional;
 
 @Service
 public class CategoryStorageJpaImpl implements CategoryStorage {
@@ -29,7 +30,6 @@ public class CategoryStorageJpaImpl implements CategoryStorage {
 
     @Override
     public Category findCategoryById(Long id) {
-
-        return categoryRepository.findCategoryById(id).get();
+        return categoryRepository.findById(id).get();
     }
 }

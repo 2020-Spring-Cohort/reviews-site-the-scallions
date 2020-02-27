@@ -1,9 +1,10 @@
-package org.wecancodeit.reviews.Models;
+package org.wecancodeit.reviews.storage;
 
 
+
+import org.wecancodeit.reviews.Models.Category;
 
 import java.util.Collection;
-
 
 public interface CategoryStorage  {
     Collection<Category> findAllCategories();

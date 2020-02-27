@@ -6,6 +6,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import org.wecancodeit.reviews.Models.*;
+import org.wecancodeit.reviews.storage.repositories.CategoryRepository;
+import org.wecancodeit.reviews.storage.repositories.CommentRepository;
+import org.wecancodeit.reviews.storage.repositories.HashTagRepository;
+import org.wecancodeit.reviews.storage.repositories.ReviewRepository;
 
 import java.util.Optional;
 
@@ -45,7 +49,7 @@ public class JpaWiringTest {
         HashTag hashTag2 = new HashTag("dry");
         Category testCategory = new Category("Red", "Jammy");
         Review testReview1 = new Review(testCategory, "White", "reviewText",  hashTag1, hashTag2);
-        Review testReview2 = new Review(testCategory, "Red", "reviewText",  hashTag2, hashTag2);
+        Review testReview2 = new Review(testCategory, "Red", "reviewText",  hashTag1, hashTag2);
         Review testReview3 = new Review(testCategory, "White", "reviewText", hashTag1, hashTag2);
         hashTagRepo.save(hashTag1);
         hashTagRepo.save(hashTag2);
@@ -58,7 +62,7 @@ public class JpaWiringTest {
         Review retrievedReview = reviewRepo.findById(testReview1.getId()).get();
         HashTag retrievedHashTag1 = hashTagRepo.findById(hashTag1.findByID()).get();
         HashTag retrievedHashTag2 = hashTagRepo.findById(hashTag2.findByID()).get();
-        assertThat(retrievedReview.getHashTag()).contains(hashTag1, hashTag2);
+        assertThat(retrievedReview.getHashtags()).contains(hashTag1, hashTag2);
         assertThat(retrievedHashTag1.getReviews()).contains(testReview1, testReview3);
         assertThat(retrievedHashTag2.getReviews()).contains(testReview1, testReview2);
     }

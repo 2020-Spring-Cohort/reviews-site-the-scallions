@@ -10,27 +10,18 @@
 </head>
 <body>
    <section class="homepage_details">
-<h1 class="homepage_title1"> The Wine, answer to all the problems</h1>
-     <h2 class="homepage_title2">gate to the happiness </h2>
-<p class="homepage_wine_description">
+    <h1 class="homepage_title1"> Wine, the answer to all problems</h1>
+     <h2 class="homepage_title2">The Gate To Happiness </h2>
+    <p class="homepage_wine_description">
     Wine is not only a great way to complement a good meal, it's also filled with health benefits, according to
-    many research studies. There many types of wines. The two main types are red and white wines. But what makes this
+    many research studies. There are many types of wines. The two main types are red and white wines. But what makes this
     beverage so great? you let us know by your reviews: please follow the links below to check out these wines in detail.</p>
 </section>
 
 <section class="homepage_links">
-    <div  th:each="category:${categories}">
-
-
-
-
-
-    <a th:text="${category.type}" th:href="@{'/categories/'+ ${category.id}}">category Name</a>
-
+    <div class="links" th:each="category:${categories}">
+        <a th:text="${category.type}" th:href="@{'/categories/'+ ${category.id}}">category Name</a><br>
     </div>
-
-
-
 </section>
 
 </body>

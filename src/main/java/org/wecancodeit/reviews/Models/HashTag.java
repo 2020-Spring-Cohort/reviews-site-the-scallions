@@ -1,16 +1,11 @@
-package org.wecancodeit.reviews;
-
-import com.sun.xml.bind.v2.model.core.ID;
-import org.wecancodeit.reviews.Models.Review;
+package org.wecancodeit.reviews.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class HashTag {
@@ -36,7 +31,8 @@ public class HashTag {
         return id;
     }
 
-    public Collection<Review> getReviews() {
+    public Collection<Review> getReviews()
+    {
      return reviews;
     }
 
@@ -47,7 +43,7 @@ public class HashTag {
         HashTag hashTag = (HashTag) o;
 
         if (id != null ? !id.equals(hashTag.id) : hashTag.id != null) return false;
-        return name != null ? name.equals(hashTag.name) : hashTag.name == null;
+             return name != null ? name.equals(hashTag.name) : hashTag.name == null;
     }
 
     @Override
@@ -55,5 +51,13 @@ public class HashTag {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "HashTag{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
